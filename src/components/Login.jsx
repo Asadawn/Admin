@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../store/slices/userSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleData = (e) => {
+  const dispatch = useDispatch();
+  const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log("hi", email, password);
+    dispatch(loginUser(email, password));
   };
 
   return (
@@ -17,7 +21,7 @@ const Login = () => {
       <div className="flex flex-col items-center justify-center min-h-screen rounded-lg  bg-gray-200 text-gray-700">
         <h1 className="font-bold text-2xl">Welcome :)</h1>
         <form
-          onSubmit={handleData}
+          onSubmit={handleLogin}
           className="flex flex-col bg-white rounded shadow-lg p-20 mt-12"
         >
           <label className="font-semibold text-sm">Username or Email</label>

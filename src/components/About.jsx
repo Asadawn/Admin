@@ -6,6 +6,7 @@ const About = () => {
   useEffect(() => {
     getData();
   }, []);
+
   const getData = async () => {
     try {
       const response = await axios.get("http://192.168.137.1:8000/core/user");
@@ -18,7 +19,7 @@ const About = () => {
   };
   return (
     <div>
-      <h1 className="text-3xl "> About component </h1>
+      <h1 className="text-6xl">This is our About component </h1>
       <p>{data}</p>
     </div>
   );
